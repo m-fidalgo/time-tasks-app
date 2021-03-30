@@ -6,14 +6,14 @@ import List from "./views/List";
 export default function App() {
   const [isOpen, setIsOpen] = useState(false);
 
-  function onOpen() {
-    setIsOpen(true);
+  function toggle() {
+    setIsOpen(!isOpen);
   }
 
   return (
     <SafeAreaView style={styles.container}>
-      <List />
-      {isOpen ? null : <Intro onOpen={onOpen} />}
+      <List onPress={toggle} />
+      {isOpen ? null : <Intro onOpen={toggle} />}
     </SafeAreaView>
   );
 }
